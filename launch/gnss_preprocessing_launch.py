@@ -1,6 +1,7 @@
 import launch
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import ExecuteProcess
 from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
@@ -34,6 +35,12 @@ def generate_launch_description():
             package='gnss_preprocessing',
             executable='save_gnss_path',
             name='save_gnss_path',
+            output='screen'
+        ),
+
+        # play the converted_bag.db3 rosbag file
+        ExecuteProcess(
+            cmd=['ros2', 'bag', 'play', '/home/pei/converted_bag/converted_bag.db3'],  # Update with correct path
             output='screen'
         ),
 
