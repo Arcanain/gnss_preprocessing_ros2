@@ -13,7 +13,7 @@
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<GnssPreprocessingComponent>(36.082887899999996, 140.0769054, 0.0); // 適切なlat, lon, higを指定
+    auto node = std::make_shared<GnssPreprocessingComponent>(35.7137481, 139.573353, 0.0); // 適切なlat, lon, higを指定
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;
@@ -35,7 +35,7 @@ GnssPreprocessingComponent::GnssPreprocessingComponent(double lat, double lon, d
 
     // Subscriber
     gnss_sub = this->create_subscription<sensor_msgs::msg::NavSatFix>(
-        "/ublox/fix", 10, std::bind(&GnssPreprocessingComponent::gnssCallback, this, std::placeholders::_1)
+        "/ublox_gps_node/fix", 10, std::bind(&GnssPreprocessingComponent::gnssCallback, this, std::placeholders::_1)
     );
 
     // Initialize gnss_path

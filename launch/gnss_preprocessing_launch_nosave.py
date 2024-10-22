@@ -30,30 +30,10 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # save gnss path node
-        Node(
-            package='gnss_preprocessing',
-            executable='save_gnss_path',
-            name='save_gnss_path',
-            output='screen'
-        ),
-
         # play the converted_bag.db3 rosbag file
         ExecuteProcess(
             cmd=['ros2', 'bag', 'play', '/home/pei/02_in_seikei_gakuen_1021_2024/rosbag2_1729514994_0.db3'],  # Update with correct path
             output='screen'
-        ),
-
-        # display in RViz
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz',
-            output='screen',
-            arguments=[
-                '-d', 
-                FindPackageShare('gnss_preprocessing').find('gnss_preprocessing') + '/rviz/gnss_preprocessing.rviz'
-            ]
         ),
     ])
 

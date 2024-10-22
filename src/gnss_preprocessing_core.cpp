@@ -11,7 +11,7 @@ GnssPreprocessingCore::GnssPreprocessingCore(double lat, double lon, double hig)
 
     // Subscriber
     gnss_sub = this->create_subscription<sensor_msgs::msg::NavSatFix>(
-        "/ublox/fix", 10, std::bind(&GnssPreprocessingCore::gnssCallback, this, std::placeholders::_1)
+        "/ublox_gps_node/fix", 10, std::bind(&GnssPreprocessingCore::gnssCallback, this, std::placeholders::_1)
     );
 
     // Initialize gnss_path

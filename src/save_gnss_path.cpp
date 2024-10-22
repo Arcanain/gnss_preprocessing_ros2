@@ -14,7 +14,7 @@ public:
             "/gnss_pose", 10, std::bind(&SaveGnssPath::gnss_callback, this, std::placeholders::_1));
 
         // Initialize CSV file
-        output_file_.open("/home/pei/ros2_ws/src/gnss_preprocessing/test_0809.csv");
+        output_file_.open("/home/pei/ros2_ws/src/gnss_preprocessing/test_1022.csv");
         output_file_ << "x,y,z,w0,w1,w2,w3\n";
     }
 
