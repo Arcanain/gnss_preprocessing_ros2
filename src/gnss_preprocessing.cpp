@@ -8,8 +8,13 @@ int main(int argc, char** argv)
     rclcpp::init(argc, argv);
 
     // Initialize GPS position (latitude, longitude)
-    double lat0 = 35.7137481;
-    double lon0 = 139.573353;
+    //tukuba
+    double lat0 = 36.082862399999996;
+    double lon0 = 140.0769906;
+    
+    //seikei
+    //double lat0 = 35.713343099999996;
+    //double lon0 = 139.57405219999998;
     double hig0 = 0.0;
 
     // Create a node using GNSS Preprocessing Core

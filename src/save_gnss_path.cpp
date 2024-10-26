@@ -14,7 +14,9 @@ public:
             "/gnss_pose", 10, std::bind(&SaveGnssPath::gnss_callback, this, std::placeholders::_1));
 
         // Initialize CSV file
-        output_file_.open("/home/pei/ros2_ws/src/gnss_preprocessing/test_1022.csv");
+        std::string home_dir = getenv("HOME");
+        std::string file_path = home_dir + "/ros2_ws/src/path_smoother/path/test05.csv";
+        output_file_.open(file_path);
         output_file_ << "x,y,z,w0,w1,w2,w3\n";
     }
 

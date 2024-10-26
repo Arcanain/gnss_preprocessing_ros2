@@ -13,7 +13,7 @@
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<GnssPreprocessingComponent>(35.7137481, 139.573353, 0.0); // 適切なlat, lon, higを指定
+    auto node = std::make_shared<GnssPreprocessingComponent>(36.082862399999996, 140.0769906, 0.0); // 適切なlat, lon, higを指定
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;

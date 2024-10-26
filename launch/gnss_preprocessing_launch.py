@@ -3,6 +3,7 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 from launch_ros.substitutions import FindPackageShare
+import os
 
 def generate_launch_description():
     return LaunchDescription([
@@ -40,7 +41,12 @@ def generate_launch_description():
 
         # play the converted_bag.db3 rosbag file
         ExecuteProcess(
-            cmd=['ros2', 'bag', 'play', '/home/pei/02_in_seikei_gakuen_1021_2024/rosbag2_1729514994_0.db3'],  # Update with correct path
+            cmd=[
+                'ros2', 'bag', 'play', 
+                os.path.expanduser('~/ドキュメント/ros2_bag_file/tukuba_1729737929'),
+                '--rate', '30.0',
+                '--remap', '/ublox/fix:=/ublox_gps_node/fix'
+            ],
             output='screen'
         ),
 
