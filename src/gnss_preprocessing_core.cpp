@@ -48,7 +48,7 @@ void GnssPreprocessingCore::gnssCallback(const sensor_msgs::msg::NavSatFix::Shar
     gnss_path.poses.push_back(point);
     gnss_pose_pub->publish(point);
     gnss_path_pub->publish(gnss_path);
-
+    /*
     // /odom to /base_link transform broadcast
     geometry_msgs::msg::TransformStamped odom_to_baselink_trans;
     odom_to_baselink_trans.header.stamp = this->now();
@@ -62,6 +62,7 @@ void GnssPreprocessingCore::gnssCallback(const sensor_msgs::msg::NavSatFix::Shar
     odom_to_baselink_trans.transform.rotation.z = 0.0;
     odom_to_baselink_trans.transform.rotation.w = 1.0;
     odom_to_baselink_broadcaster->sendTransform(odom_to_baselink_trans);
+    */
 }
 
 /***********************************************************************

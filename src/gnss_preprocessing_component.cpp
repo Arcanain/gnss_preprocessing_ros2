@@ -75,7 +75,7 @@ void GnssPreprocessingComponent::gnssCallback(const sensor_msgs::msg::NavSatFix:
     gnss_path.poses.push_back(point);
     gnss_pose_pub->publish(point);
     gnss_path_pub->publish(gnss_path);
-
+    /*
     // /odom to /base_link transform broadcast
     geometry_msgs::msg::TransformStamped odom_to_baselink_trans;
     odom_to_baselink_trans.header.stamp = this->now();
@@ -90,6 +90,7 @@ void GnssPreprocessingComponent::gnssCallback(const sensor_msgs::msg::NavSatFix:
     odom_to_baselink_trans.transform.rotation.w = 1.0;
     odom_to_baselink_broadcaster->sendTransform(odom_to_baselink_trans);
     RCLCPP_INFO(this->get_logger(), "ENU coordinates: x=%f, y=%f, z=%f", enu[0], enu[1], enu[2]);
+    */
 }
 
 /***********************************************************************
