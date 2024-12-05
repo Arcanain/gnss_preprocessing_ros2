@@ -7,14 +7,14 @@
 class SaveGnssPath : public rclcpp::Node
 {
 public:
-    SaveGnssPath() : Node("save_gnss_path"), pre_x(0.0), pre_y(0.0), dist_thread(0.01)
+    SaveGnssPath() : Node("save_gnss_path"), pre_x(0.0), pre_y(0.0), dist_thread(0.03)
     {
         // Subscriber to /gnss_pose topic
         gnss_sub_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
             "/gnss_pose", 10, std::bind(&SaveGnssPath::gnss_callback, this, std::placeholders::_1));
 
         // Initialize CSV file
-        output_file_.open("/home/pei/ros2_ws/src/gnss_preprocessing/test_1022.csv");
+        output_file_.open("/home/tom/ros2_ws/src/gnss_preprocessing/test_1031.csv");
         output_file_ << "x,y,z,w0,w1,w2,w3\n";
     }
 
